@@ -26,6 +26,7 @@ class GamesAdapter(
     }
 
     override fun onBindViewHolder(holder: GameViewHolder, position: Int) {
+        Log.d(TAG, "fun onBindViewHolder(holder: GameViewHolder, position($position): Int)")
         getItem(position)?.let {
             holder.bind(it)
         }
@@ -38,7 +39,7 @@ class GamesAdapter(
     ) : RecyclerView.ViewHolder(view) {
 
         fun bind(item: GameItem) {
-            Log.d(TAG, "---------------------- bind ----------------------")
+            Log.d(TAG, "---------------------- bind($adapterPosition) ----------------------")
 
             itemView.findViewById<TextView>(R.id.tv_team_name_home).text = item.homeTeamName.also {
                 Log.d(TAG, "updated tv_team_name_home: $it")
